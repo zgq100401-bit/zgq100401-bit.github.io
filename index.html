@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XENO</title>
+  <meta name="description" content="XENO 的个人网站" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07070c;
+      --card: rgba(18, 18, 28, 0.72);
+      --text: #f4f4f8;
+      --muted: #a8a8b8;
+      --accent: #7c8cff;
+      --accent-2: #c084fc;
+      --line: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Outfit", "Noto Sans SC", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    .stars {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.7), transparent),
+        radial-gradient(1px 1px at 80% 20%, rgba(255,255,255,.5), transparent),
+        radial-gradient(1.5px 1.5px at 50% 70%, rgba(255,255,255,.45), transparent),
+        radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,.4), transparent),
+        radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,.55), transparent),
+        radial-gradient(2px 2px at 70% 40%, rgba(196,132,252,.35), transparent),
+        radial-gradient(1200px 600px at 50% -10%, rgba(124,140,255,.18), transparent),
+        radial-gradient(800px 400px at 80% 100%, rgba(192,132,252,.12), transparent);
+    }
+    .wrap {
+      position: relative; z-index: 1;
+      min-height: 100%;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 64px;
+    }
+    .logo {
+      font-weight: 700; letter-spacing: 0.18em; font-size: 13px;
+      color: var(--muted);
+    }
+    nav a {
+      color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 22px;
+    }
+    nav a:hover { color: var(--text); }
+    .hero {
+      padding: 28px 0 48px;
+    }
+    .eyebrow {
+      color: var(--accent); font-size: 13px; letter-spacing: 0.16em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      line-height: 1.05; font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    h1 span {
+      background: linear-gradient(120deg, #fff 20%, #7c8cff 55%, #c084fc);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead {
+      margin-top: 22px; max-width: 540px;
+      color: var(--muted); font-size: 18px; line-height: 1.7;
+    }
+    .actions {
+      margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 18px; border-radius: 999px;
+      text-decoration: none; font-size: 14px; font-weight: 500;
+      border: 1px solid var(--line);
+      color: var(--text); background: rgba(255,255,255,0.04);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, #7c8cff, #9b6bff);
+      border-color: transparent; color: #fff;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px; margin-top: 8px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px 22px 20px;
+      backdrop-filter: blur(16px);
+    }
+    .card h2 {
+      font-size: 16px; margin-bottom: 8px; font-weight: 600;
+    }
+    .card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    section { margin-top: 56px; }
+    section > h2 {
+      font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    footer {
+      margin-top: 72px; color: #6b6b78; font-size: 13px;
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    footer a { color: #8b8b9a; }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="wrap">
+    <header>
+      <div class="logo">XENO</div>
+      <nav>
+        <a href="#about">关于</a>
+        <a href="#links">链接</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <p class="eyebrow">Personal Site</p>
+      <h1>你好，我是 <span>XENO</span></h1>
+      <p class="lead">喜欢探索、创作和 AI。这里是我的个人主页，用 GitHub Pages 托管。</p>
+      <div class="actions">
+        <a class="btn primary" href="https://x.com/XENOzgq" target="_blank" rel="noopener">X / Twitter</a>
+        <a class="btn" href="https://github.com/zgq100401-bit" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="grid">
+        <article class="card">
+          <h2>关于我</h2>
+          <p>我是 XENO。常在 X 上活动，也喜欢用 AI 做图像与创作。对新事物保持好奇。</p>
+        </article>
+        <article class="card">
+          <h2>现在在做</h2>
+          <p>搭建个人网站、玩 AI 工具、记录一些想法。这个站点也会随着我一起变。</p>
+        </article>
+        <article class="card">
+          <h2>可以找我</h2>
+          <p>X：@XENOzgq<br/>GitHub：zgq100401-bit</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="links">
+      <h2>Links</h2>
+      <div class="grid">
+        <article class="card">
+          <h2>GitHub Pages</h2>
+          <p>这个站点源代码就在当前仓库里。你可以直接改 <code>index.html</code> 来更新页面。</p>
+        </article>
+        <article class="card">
+          <h2>下一步</h2>
+          <p>可以加上项目展示、博客、作品集。告诉我你想怎么改，我帮你继续写。</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 XENO</span>
+      <span><a href="https://github.com/zgq100401-bit/zgq100401-bit.github.io">源代码</a></span>
+    </footer>
+  </div>
+</body>
+</html>
